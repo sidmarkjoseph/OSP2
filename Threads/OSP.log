@@ -1,0 +1,3539 @@
+Sim: 0 [EventEngine.EventDriver]  
+	Simulation Start Time: Thu Oct 22 20:03:00 EDT 2015
+	Parameter file: Misc/params.osp
+
+	Legend:
+	  Thread(X:Y/S) means: thread X of task Y, status=S
+	  Task(X/S) means: task X, status=S
+	  Page(X:Y/Z) means: page X of task Y in frame Z
+	  Openfile(X:Y/Z) means: open file X of task Y on device Z
+	  Port(X:Y/S) means: port X of task Y has status S
+	Status code abbreviations:
+	  RD(ThreadReady), RU(ThreadRunning),
+	  Wn(ThreadWaiting, n=waitlevel), KL(ThreadKill)
+	  L(TaskLive), T(TaskTerm), NN(NONE)
+	  L(PortLive), D(PortDestroyed), NN(NONE)
+
+
+Sim: 0 [IFLModules.ResourceCB]  
+	Deadlock handling mode: Detection
+Sim: 0 [IFLModules.TaskCB]  
+	Entering create()
+Mod: 0 [Tasks.TaskCB]  
+	Task(1/NN) created
+Sim: 0 [IFLModules.FileSys]  
+	Creating file: create(/vm/1,65536)
+Mod: 0 [FileSys.FileSys]  
+	Creating file: create(/vm/1,65536)
+Mod: 0 [FileSys.FileSys]  
+	New file size 64 blocks
+Mod: 0 [FileSys.FileSys]  
+	Inode(Id(0),Device(0),BlockCount(64),OpenCount(0),LinkCount(1))
+	  File `/vm/1', blocksize=64 created on device 0
+Sim: 0 [IFLModules.FileSys]  
+	System call create(`/vm/1')  succeeded, as expected
+Sim: 0 [IFLModules.OpenFile]  
+	System call open(`/vm/1')
+Sim: 0 [Tasks.TaskCB]  
+	Adding Openfile(0:1/0) to the open files table of Task(1/L)
+Mod: 0 [FileSys.OpenFile]  
+	File `/vm/1' opened 1 times
+Sim: 0 [IFLModules.OpenFile]  
+	File `/vm/1' opened as Openfile(0:1/0)
+Sim: 0 [IFLModules.FileSys]  
+	System call open(`/vm/1')  succeeded, as expected
+Sim: 0 [IFLModules.ThreadCB]  
+	Trying to create new thread for Task(1/L)
+Sim: 0 [Utilities.Simulation]  
+	Elapsed time: 3241 seconds
+
+ [IFLModules.ThreadCB]  
+	Created new thread Thread(0:1/RD)
+Sim: 0 [IFLModules.ThreadCB]  
+	Entering dispatch(); current running thread is null
+Sim: 0 <<Warning!>> [IFLModules.ThreadCB]  
+	After do_dispatch(): CPU is idle, but there are ready threads
+	ready queue = (0:1)
+
+	at osp.IFLModules.IflThreadCB.long(IflThreadCB.java:555)
+	at osp.IFLModules.IflThreadCB.cG(IflThreadCB.java:912)
+	at osp.IFLModules.DispatchThreadEvent.voidCallback(DispatchThreadEvent.java:31)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 0 [IFLModules.ThreadCB]  
+	Leaving dispatch()
+Sim: 2959 [IFLModules.TaskCB]  
+	Entering create()
+Mod: 2959 [Tasks.TaskCB]  
+	Task(2/NN) created
+Sim: 2959 [IFLModules.FileSys]  
+	Creating file: create(/vm/2,65536)
+Mod: 2959 [FileSys.FileSys]  
+	Creating file: create(/vm/2,65536)
+Mod: 2959 [FileSys.FileSys]  
+	New file size 64 blocks
+Mod: 2959 [FileSys.FileSys]  
+	Inode(Id(1),Device(0),BlockCount(64),OpenCount(0),LinkCount(1))
+	  File `/vm/2', blocksize=64 created on device 0
+Sim: 2959 [IFLModules.FileSys]  
+	System call create(`/vm/2')  succeeded, as expected
+Sim: 2959 [IFLModules.OpenFile]  
+	System call open(`/vm/2')
+Sim: 2959 [Tasks.TaskCB]  
+	Adding Openfile(2:2/0) to the open files table of Task(2/L)
+Mod: 2959 [FileSys.OpenFile]  
+	File `/vm/2' opened 1 times
+Sim: 2959 [IFLModules.OpenFile]  
+	File `/vm/2' opened as Openfile(2:2/0)
+Sim: 2959 [IFLModules.FileSys]  
+	System call open(`/vm/2')  succeeded, as expected
+Sim: 2959 [IFLModules.ThreadCB]  
+	Trying to create new thread for Task(2/L)
+My:  2959 [Threads.ThreadCB]  
+	Total Number of threads 2
+Sim: 2959 [IFLModules.ThreadCB]  
+	Created new thread Thread(1:2/RD)
+Sim: 2959 [IFLModules.ThreadCB]  
+	Entering dispatch(); current running thread is null
+Sim: 2959 <<Warning!>> [IFLModules.ThreadCB]  
+	After do_dispatch(): CPU is idle, but there are ready threads
+	ready queue = (0:1,1:2)
+
+	at osp.IFLModules.IflThreadCB.long(IflThreadCB.java:555)
+	at osp.IFLModules.IflThreadCB.cG(IflThreadCB.java:912)
+	at osp.IFLModules.DispatchThreadEvent.voidCallback(DispatchThreadEvent.java:31)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 2959 [IFLModules.ThreadCB]  
+	Leaving dispatch()
+Mod: 10000 [Threads.ThreadCB]  
+	Added Thread(2:0/W0) to daemon Task(0/L)
+Mod: 10000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 10000 [Threads.ThreadCB]  
+	Killing daemon Thread(2:0/W0)
+Mod: 10000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 10000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(2:0/KL)
+Mod: 10000 [Hardware.Disk]  
+	Purging IORBs for Thread(2:0/KL) on Device(0)
+Mod: 10000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 10000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 10000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(2:0/KL)
+Mod: 10000 [Hardware.Disk]  
+	Purging IORBs for Thread(2:0/KL) on Device(1)
+Mod: 10000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 10000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 10000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(2:0/KL)
+Mod: 10000 [Hardware.Disk]  
+	Purging IORBs for Thread(2:0/KL) on Device(2)
+Mod: 10000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Sim: 12038 [IFLModules.TaskCB]  
+	Entering create()
+Mod: 12038 [Tasks.TaskCB]  
+	Task(3/NN) created
+Sim: 12038 [IFLModules.FileSys]  
+	Creating file: create(/vm/3,65536)
+Mod: 12038 [FileSys.FileSys]  
+	Creating file: create(/vm/3,65536)
+Mod: 12038 [FileSys.FileSys]  
+	New file size 64 blocks
+Mod: 12038 [FileSys.FileSys]  
+	Inode(Id(2),Device(0),BlockCount(64),OpenCount(0),LinkCount(1))
+	  File `/vm/3', blocksize=64 created on device 0
+Sim: 12038 [IFLModules.FileSys]  
+	System call create(`/vm/3')  succeeded, as expected
+Sim: 12038 [IFLModules.OpenFile]  
+	System call open(`/vm/3')
+Sim: 12038 [Tasks.TaskCB]  
+	Adding Openfile(4:3/0) to the open files table of Task(3/L)
+Mod: 12038 [FileSys.OpenFile]  
+	File `/vm/3' opened 1 times
+Sim: 12038 [IFLModules.OpenFile]  
+	File `/vm/3' opened as Openfile(4:3/0)
+Sim: 12038 [IFLModules.FileSys]  
+	System call open(`/vm/3')  succeeded, as expected
+Sim: 12038 [IFLModules.ThreadCB]  
+	Trying to create new thread for Task(3/L)
+My:  12038 [Threads.ThreadCB]  
+	Total Number of threads 3
+Sim: 12038 [IFLModules.ThreadCB]  
+	Created new thread Thread(3:3/RD)
+Sim: 12038 [IFLModules.ThreadCB]  
+	Entering dispatch(); current running thread is null
+Sim: 12038 <<Warning!>> [IFLModules.ThreadCB]  
+	After do_dispatch(): CPU is idle, but there are ready threads
+	ready queue = (0:1,1:2,3:3)
+
+	at osp.IFLModules.IflThreadCB.long(IflThreadCB.java:555)
+	at osp.IFLModules.IflThreadCB.cG(IflThreadCB.java:912)
+	at osp.IFLModules.DispatchThreadEvent.voidCallback(DispatchThreadEvent.java:31)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 12038 [IFLModules.ThreadCB]  
+	Leaving dispatch()
+Mod: 20000 [Threads.ThreadCB]  
+	Added Thread(4:0/W0) to daemon Task(0/L)
+Mod: 20000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 20000 [Threads.ThreadCB]  
+	Killing daemon Thread(4:0/W0)
+Mod: 20000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 20000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(4:0/KL)
+Mod: 20000 [Hardware.Disk]  
+	Purging IORBs for Thread(4:0/KL) on Device(0)
+Mod: 20000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 20000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 20000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(4:0/KL)
+Mod: 20000 [Hardware.Disk]  
+	Purging IORBs for Thread(4:0/KL) on Device(1)
+Mod: 20000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 20000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 20000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(4:0/KL)
+Mod: 20000 [Hardware.Disk]  
+	Purging IORBs for Thread(4:0/KL) on Device(2)
+Mod: 20000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Sim: 20000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(0:1/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 20000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(1:2/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 20000 [IFLModules.ResourceCB]  
+	Entering deadlock detection method
+Mod: 20000 [Resources.ResourceCB]  
+	Entering Deadlock Detection Algorithm
+Sim: 20000 [IFLModules.ResourceCB]  
+	After do_deadlockDetection(): No deadlocks found
+Sim: 20000 [IFLModules.ResourceCB]  
+	Leaving deadlock detection 
+Sim:25000 [Utilities.SnapshotTaker]  
+	
+
+[Snapshot at 25000]
+
+MEMORY:
+  Free frames: 30(100%) out of 30
+  Locked frames: 0 out of 30
+  Reserved frames: 0 out of 30
+  Referenced frames: 0 out of 30
+
+Memory map:
+|----------|------------------------------|
+|Frame     |000000000011111111112222222222|
+|number    |012345678901234567890123456789|
+|----------|------------------------------|
+|free      |FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF|
+|lock      |000000000000000000000000000000|
+|reserved  |                              |
+|dirty     |                              |
+|referenced|                              |
+|----------|------------------------------|
+|          |                              |
+|page      |                              |
+|number    |                              |
+|----------|------------------------------|
+|          |                              |
+|owner     |                              |
+|task      |                              |
+|----------|------------------------------|
+
+
+Page table for Task 1:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 2:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 3:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+
+DEVICES:
+  Device 0: Swap Device   (mount point: /vm/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+  Device 1: Disk   (mount point: /etc/go/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+  Device 2: Disk   (mount point: /etc/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+
+TASKS and THREADS:
+  CPU Utilization: 0.0%
+  Average service time per thread: 20001.0
+  Average normalized service time per thread: 0.0
+  Total number of tasks: 3
+  Running thread(s): none
+  Threads summary: 3 alive
+  Among live threads: 0 running
+                      0 suspended
+                      3 ready
+  ready queue = (0:1,1:2,3:3)
+  running thread(s) = ()
+  waiting thread(s) = ()
+  thread(s) in pagefault = ()
+  killed thread(s) = ()
+
+FILES:
+  Total number of files: 0
+  Total number of directories: 3
+  Total number of open files: 0
+  Device 0: 1344 out of 1536 blocks are free, 12.5% used
+  Device 1: 40 out of 40 blocks are free, 0.0% used
+  Device 2: 16 out of 16 blocks are free, 0.0% used
+
+
+PORTS:
+  Number of Live Ports: 	0
+  Number of Ports Created: 	0
+  Number of Ports Destroyed: 	0
+  Number of Messages Sent: 	0
+  Number of Messages Received: 	0
+
+
+
+RESOURCES:
+  Total number of acquire() calls: 0
+  Total number of release() calls: 0
+
+    Resource Availability Table
+|---------------|-------------------------|
+|Resource Type  |0    1    2    3    4    |
+|---------------|-------------------------|
+|  Total        |8    8    8    6    9    |
+|---------------|-------------------------|
+|  Available    |8    8    8    6    9    |
+|---------------|-------------------------|
+
+
+
+    Resource Allocation Table
+|------------------|-----------------------------------|
+|Resource Type     |0      1      2      3      4      |
+|------------------|-----------------------------------|
+|------------------|-----------------------------------|
+
+
+
+
+The suspended  RRBs: 
+
+
+-----------------------------------------------
+
+Mod: 30000 [Threads.ThreadCB]  
+	Added Thread(5:0/W0) to daemon Task(0/L)
+Mod: 30000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 30000 [Threads.ThreadCB]  
+	Killing daemon Thread(5:0/W0)
+Mod: 30000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 30000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(5:0/KL)
+Mod: 30000 [Hardware.Disk]  
+	Purging IORBs for Thread(5:0/KL) on Device(0)
+Mod: 30000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 30000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 30000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(5:0/KL)
+Mod: 30000 [Hardware.Disk]  
+	Purging IORBs for Thread(5:0/KL) on Device(1)
+Mod: 30000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 30000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 30000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(5:0/KL)
+Mod: 30000 [Hardware.Disk]  
+	Purging IORBs for Thread(5:0/KL) on Device(2)
+Mod: 30000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Mod: 40000 [Threads.ThreadCB]  
+	Added Thread(6:0/W0) to daemon Task(0/L)
+Mod: 40000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 40000 [Threads.ThreadCB]  
+	Killing daemon Thread(6:0/W0)
+Mod: 40000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 40000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(6:0/KL)
+Mod: 40000 [Hardware.Disk]  
+	Purging IORBs for Thread(6:0/KL) on Device(0)
+Mod: 40000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 40000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 40000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(6:0/KL)
+Mod: 40000 [Hardware.Disk]  
+	Purging IORBs for Thread(6:0/KL) on Device(1)
+Mod: 40000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 40000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 40000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(6:0/KL)
+Mod: 40000 [Hardware.Disk]  
+	Purging IORBs for Thread(6:0/KL) on Device(2)
+Mod: 40000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Sim: 40000 [IFLModules.ResourceCB]  
+	Entering deadlock detection method
+Mod: 40000 [Resources.ResourceCB]  
+	Entering Deadlock Detection Algorithm
+Sim: 40000 [IFLModules.ResourceCB]  
+	After do_deadlockDetection(): No deadlocks found
+Sim: 40000 [IFLModules.ResourceCB]  
+	Leaving deadlock detection 
+Sim: 40000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(0:1/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 40000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(1:2/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 40000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(3:3/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Mod: 50000 [Threads.ThreadCB]  
+	Added Thread(7:0/W0) to daemon Task(0/L)
+Mod: 50000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 50000 [Threads.ThreadCB]  
+	Killing daemon Thread(7:0/W0)
+Mod: 50000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 50000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(7:0/KL)
+Mod: 50000 [Hardware.Disk]  
+	Purging IORBs for Thread(7:0/KL) on Device(0)
+Mod: 50000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 50000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 50000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(7:0/KL)
+Mod: 50000 [Hardware.Disk]  
+	Purging IORBs for Thread(7:0/KL) on Device(1)
+Mod: 50000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 50000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 50000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(7:0/KL)
+Mod: 50000 [Hardware.Disk]  
+	Purging IORBs for Thread(7:0/KL) on Device(2)
+Mod: 50000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Sim:50000 [Utilities.SnapshotTaker]  
+	
+
+[Snapshot at 50000]
+
+MEMORY:
+  Free frames: 30(100%) out of 30
+  Locked frames: 0 out of 30
+  Reserved frames: 0 out of 30
+  Referenced frames: 0 out of 30
+
+Memory map:
+|----------|------------------------------|
+|Frame     |000000000011111111112222222222|
+|number    |012345678901234567890123456789|
+|----------|------------------------------|
+|free      |FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF|
+|lock      |000000000000000000000000000000|
+|reserved  |                              |
+|dirty     |                              |
+|referenced|                              |
+|----------|------------------------------|
+|          |                              |
+|page      |                              |
+|number    |                              |
+|----------|------------------------------|
+|          |                              |
+|owner     |                              |
+|task      |                              |
+|----------|------------------------------|
+
+
+Page table for Task 1:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 2:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 3:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+
+DEVICES:
+  Device 0: Swap Device   (mount point: /vm/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+  Device 1: Disk   (mount point: /etc/go/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+  Device 2: Disk   (mount point: /etc/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+
+TASKS and THREADS:
+  CPU Utilization: 0.0%
+  Average service time per thread: 45001.0
+  Average normalized service time per thread: 0.0
+  Total number of tasks: 3
+  Running thread(s): none
+  Threads summary: 3 alive
+  Among live threads: 0 running
+                      0 suspended
+                      3 ready
+  ready queue = (0:1,1:2,3:3)
+  running thread(s) = ()
+  waiting thread(s) = ()
+  thread(s) in pagefault = ()
+  killed thread(s) = ()
+
+FILES:
+  Total number of files: 0
+  Total number of directories: 3
+  Total number of open files: 0
+  Device 0: 1344 out of 1536 blocks are free, 12.5% used
+  Device 1: 40 out of 40 blocks are free, 0.0% used
+  Device 2: 16 out of 16 blocks are free, 0.0% used
+
+
+PORTS:
+  Number of Live Ports: 	0
+  Number of Ports Created: 	0
+  Number of Ports Destroyed: 	0
+  Number of Messages Sent: 	0
+  Number of Messages Received: 	0
+
+
+
+RESOURCES:
+  Total number of acquire() calls: 0
+  Total number of release() calls: 0
+
+    Resource Availability Table
+|---------------|-------------------------|
+|Resource Type  |0    1    2    3    4    |
+|---------------|-------------------------|
+|  Total        |8    8    8    6    9    |
+|---------------|-------------------------|
+|  Available    |8    8    8    6    9    |
+|---------------|-------------------------|
+
+
+
+    Resource Allocation Table
+|------------------|-----------------------------------|
+|Resource Type     |0      1      2      3      4      |
+|------------------|-----------------------------------|
+|------------------|-----------------------------------|
+
+
+
+
+The suspended  RRBs: 
+
+
+-----------------------------------------------
+
+Mod: 60000 [Threads.ThreadCB]  
+	Added Thread(8:0/W0) to daemon Task(0/L)
+Mod: 60000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 60000 [Threads.ThreadCB]  
+	Killing daemon Thread(8:0/W0)
+Mod: 60000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 60000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(8:0/KL)
+Mod: 60000 [Hardware.Disk]  
+	Purging IORBs for Thread(8:0/KL) on Device(0)
+Mod: 60000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 60000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 60000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(8:0/KL)
+Mod: 60000 [Hardware.Disk]  
+	Purging IORBs for Thread(8:0/KL) on Device(1)
+Mod: 60000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 60000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 60000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(8:0/KL)
+Mod: 60000 [Hardware.Disk]  
+	Purging IORBs for Thread(8:0/KL) on Device(2)
+Mod: 60000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Sim: 60000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(0:1/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 60000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(1:2/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 60000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(3:3/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 60000 [IFLModules.ResourceCB]  
+	Entering deadlock detection method
+Mod: 60000 [Resources.ResourceCB]  
+	Entering Deadlock Detection Algorithm
+Sim: 60000 [IFLModules.ResourceCB]  
+	After do_deadlockDetection(): No deadlocks found
+Sim: 60000 [IFLModules.ResourceCB]  
+	Leaving deadlock detection 
+Mod: 70000 [Threads.ThreadCB]  
+	Added Thread(9:0/W0) to daemon Task(0/L)
+Mod: 70000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 70000 [Threads.ThreadCB]  
+	Killing daemon Thread(9:0/W0)
+Mod: 70000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 70000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(9:0/KL)
+Mod: 70000 [Hardware.Disk]  
+	Purging IORBs for Thread(9:0/KL) on Device(0)
+Mod: 70000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 70000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 70000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(9:0/KL)
+Mod: 70000 [Hardware.Disk]  
+	Purging IORBs for Thread(9:0/KL) on Device(1)
+Mod: 70000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 70000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 70000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(9:0/KL)
+Mod: 70000 [Hardware.Disk]  
+	Purging IORBs for Thread(9:0/KL) on Device(2)
+Mod: 70000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Sim:75000 [Utilities.SnapshotTaker]  
+	
+
+[Snapshot at 75000]
+
+MEMORY:
+  Free frames: 30(100%) out of 30
+  Locked frames: 0 out of 30
+  Reserved frames: 0 out of 30
+  Referenced frames: 0 out of 30
+
+Memory map:
+|----------|------------------------------|
+|Frame     |000000000011111111112222222222|
+|number    |012345678901234567890123456789|
+|----------|------------------------------|
+|free      |FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF|
+|lock      |000000000000000000000000000000|
+|reserved  |                              |
+|dirty     |                              |
+|referenced|                              |
+|----------|------------------------------|
+|          |                              |
+|page      |                              |
+|number    |                              |
+|----------|------------------------------|
+|          |                              |
+|owner     |                              |
+|task      |                              |
+|----------|------------------------------|
+
+
+Page table for Task 1:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 2:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 3:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+
+DEVICES:
+  Device 0: Swap Device   (mount point: /vm/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+  Device 1: Disk   (mount point: /etc/go/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+  Device 2: Disk   (mount point: /etc/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+
+TASKS and THREADS:
+  CPU Utilization: 0.0%
+  Average service time per thread: 70001.0
+  Average normalized service time per thread: 0.0
+  Total number of tasks: 3
+  Running thread(s): none
+  Threads summary: 3 alive
+  Among live threads: 0 running
+                      0 suspended
+                      3 ready
+  ready queue = (0:1,1:2,3:3)
+  running thread(s) = ()
+  waiting thread(s) = ()
+  thread(s) in pagefault = ()
+  killed thread(s) = ()
+
+FILES:
+  Total number of files: 0
+  Total number of directories: 3
+  Total number of open files: 0
+  Device 0: 1344 out of 1536 blocks are free, 12.5% used
+  Device 1: 40 out of 40 blocks are free, 0.0% used
+  Device 2: 16 out of 16 blocks are free, 0.0% used
+
+
+PORTS:
+  Number of Live Ports: 	0
+  Number of Ports Created: 	0
+  Number of Ports Destroyed: 	0
+  Number of Messages Sent: 	0
+  Number of Messages Received: 	0
+
+
+
+RESOURCES:
+  Total number of acquire() calls: 0
+  Total number of release() calls: 0
+
+    Resource Availability Table
+|---------------|-------------------------|
+|Resource Type  |0    1    2    3    4    |
+|---------------|-------------------------|
+|  Total        |8    8    8    6    9    |
+|---------------|-------------------------|
+|  Available    |8    8    8    6    9    |
+|---------------|-------------------------|
+
+
+
+    Resource Allocation Table
+|------------------|-----------------------------------|
+|Resource Type     |0      1      2      3      4      |
+|------------------|-----------------------------------|
+|------------------|-----------------------------------|
+
+
+
+
+The suspended  RRBs: 
+
+
+-----------------------------------------------
+
+Mod: 80000 [Threads.ThreadCB]  
+	Added Thread(10:0/W0) to daemon Task(0/L)
+Mod: 80000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 80000 [Threads.ThreadCB]  
+	Killing daemon Thread(10:0/W0)
+Mod: 80000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 80000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(10:0/KL)
+Mod: 80000 [Hardware.Disk]  
+	Purging IORBs for Thread(10:0/KL) on Device(0)
+Mod: 80000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 80000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 80000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(10:0/KL)
+Mod: 80000 [Hardware.Disk]  
+	Purging IORBs for Thread(10:0/KL) on Device(1)
+Mod: 80000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 80000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 80000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(10:0/KL)
+Mod: 80000 [Hardware.Disk]  
+	Purging IORBs for Thread(10:0/KL) on Device(2)
+Mod: 80000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Sim: 80000 [IFLModules.ResourceCB]  
+	Entering deadlock detection method
+Mod: 80000 [Resources.ResourceCB]  
+	Entering Deadlock Detection Algorithm
+Sim: 80000 [IFLModules.ResourceCB]  
+	After do_deadlockDetection(): No deadlocks found
+Sim: 80000 [IFLModules.ResourceCB]  
+	Leaving deadlock detection 
+Sim: 80000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(0:1/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 80000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(1:2/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 80000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(3:3/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 82298 [IFLModules.TaskCB]  
+	Entering create()
+Mod: 82298 [Tasks.TaskCB]  
+	Task(4/NN) created
+Sim: 82298 [IFLModules.FileSys]  
+	Creating file: create(/vm/4,65536)
+Mod: 82298 [FileSys.FileSys]  
+	Creating file: create(/vm/4,65536)
+Mod: 82298 [FileSys.FileSys]  
+	New file size 64 blocks
+Mod: 82298 [FileSys.FileSys]  
+	Inode(Id(3),Device(0),BlockCount(64),OpenCount(0),LinkCount(1))
+	  File `/vm/4', blocksize=64 created on device 0
+Sim: 82298 [IFLModules.FileSys]  
+	System call create(`/vm/4')  succeeded, as expected
+Sim: 82298 [IFLModules.OpenFile]  
+	System call open(`/vm/4')
+Sim: 82298 [Tasks.TaskCB]  
+	Adding Openfile(6:4/0) to the open files table of Task(4/L)
+Mod: 82298 [FileSys.OpenFile]  
+	File `/vm/4' opened 1 times
+Sim: 82298 [IFLModules.OpenFile]  
+	File `/vm/4' opened as Openfile(6:4/0)
+Sim: 82298 [IFLModules.FileSys]  
+	System call open(`/vm/4')  succeeded, as expected
+Sim: 82298 [IFLModules.ThreadCB]  
+	Trying to create new thread for Task(4/L)
+My:  82298 [Threads.ThreadCB]  
+	Total Number of threads 4
+Sim: 82298 [IFLModules.ThreadCB]  
+	Created new thread Thread(11:4/RD)
+Sim: 82298 [IFLModules.ThreadCB]  
+	Entering dispatch(); current running thread is null
+Sim: 82298 <<Warning!>> [IFLModules.ThreadCB]  
+	After do_dispatch(): CPU is idle, but there are ready threads
+	ready queue = (0:1,1:2,3:3,11:4)
+
+	at osp.IFLModules.IflThreadCB.long(IflThreadCB.java:555)
+	at osp.IFLModules.IflThreadCB.cG(IflThreadCB.java:912)
+	at osp.IFLModules.DispatchThreadEvent.voidCallback(DispatchThreadEvent.java:31)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 82298 [IFLModules.ThreadCB]  
+	Leaving dispatch()
+Mod: 90000 [Threads.ThreadCB]  
+	Added Thread(12:0/W0) to daemon Task(0/L)
+Mod: 90000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 90000 [Threads.ThreadCB]  
+	Killing daemon Thread(12:0/W0)
+Mod: 90000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 90000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(12:0/KL)
+Mod: 90000 [Hardware.Disk]  
+	Purging IORBs for Thread(12:0/KL) on Device(0)
+Mod: 90000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 90000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 90000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(12:0/KL)
+Mod: 90000 [Hardware.Disk]  
+	Purging IORBs for Thread(12:0/KL) on Device(1)
+Mod: 90000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 90000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 90000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(12:0/KL)
+Mod: 90000 [Hardware.Disk]  
+	Purging IORBs for Thread(12:0/KL) on Device(2)
+Mod: 90000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Mod: 100000 [Threads.ThreadCB]  
+	Added Thread(13:0/W0) to daemon Task(0/L)
+Mod: 100000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 100000 [Threads.ThreadCB]  
+	Killing daemon Thread(13:0/W0)
+Mod: 100000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 100000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(13:0/KL)
+Mod: 100000 [Hardware.Disk]  
+	Purging IORBs for Thread(13:0/KL) on Device(0)
+Mod: 100000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 100000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 100000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(13:0/KL)
+Mod: 100000 [Hardware.Disk]  
+	Purging IORBs for Thread(13:0/KL) on Device(1)
+Mod: 100000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 100000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 100000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(13:0/KL)
+Mod: 100000 [Hardware.Disk]  
+	Purging IORBs for Thread(13:0/KL) on Device(2)
+Mod: 100000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Sim: 100000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(0:1/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 100000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(1:2/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 100000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(3:3/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 100000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(11:4/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 100000 [IFLModules.ResourceCB]  
+	Entering deadlock detection method
+Mod: 100000 [Resources.ResourceCB]  
+	Entering Deadlock Detection Algorithm
+Sim: 100000 [IFLModules.ResourceCB]  
+	After do_deadlockDetection(): No deadlocks found
+Sim: 100000 [IFLModules.ResourceCB]  
+	Leaving deadlock detection 
+Sim:100000 [Utilities.SnapshotTaker]  
+	
+
+[Snapshot at 100000]
+
+MEMORY:
+  Free frames: 30(100%) out of 30
+  Locked frames: 0 out of 30
+  Reserved frames: 0 out of 30
+  Referenced frames: 0 out of 30
+
+Memory map:
+|----------|------------------------------|
+|Frame     |000000000011111111112222222222|
+|number    |012345678901234567890123456789|
+|----------|------------------------------|
+|free      |FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF|
+|lock      |000000000000000000000000000000|
+|reserved  |                              |
+|dirty     |                              |
+|referenced|                              |
+|----------|------------------------------|
+|          |                              |
+|page      |                              |
+|number    |                              |
+|----------|------------------------------|
+|          |                              |
+|owner     |                              |
+|task      |                              |
+|----------|------------------------------|
+
+
+Page table for Task 1:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 2:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 3:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 4:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+
+DEVICES:
+  Device 0: Swap Device   (mount point: /vm/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+  Device 1: Disk   (mount point: /etc/go/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+  Device 2: Disk   (mount point: /etc/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+
+TASKS and THREADS:
+  CPU Utilization: 0.0%
+  Average service time per thread: 75676.25
+  Average normalized service time per thread: 0.0
+  Total number of tasks: 4
+  Running thread(s): none
+  Threads summary: 4 alive
+  Among live threads: 0 running
+                      0 suspended
+                      4 ready
+  ready queue = (0:1,1:2,3:3,11:4)
+  running thread(s) = ()
+  waiting thread(s) = ()
+  thread(s) in pagefault = ()
+  killed thread(s) = ()
+
+FILES:
+  Total number of files: 0
+  Total number of directories: 3
+  Total number of open files: 0
+  Device 0: 1280 out of 1536 blocks are free, 16.666668% used
+  Device 1: 40 out of 40 blocks are free, 0.0% used
+  Device 2: 16 out of 16 blocks are free, 0.0% used
+
+
+PORTS:
+  Number of Live Ports: 	0
+  Number of Ports Created: 	0
+  Number of Ports Destroyed: 	0
+  Number of Messages Sent: 	0
+  Number of Messages Received: 	0
+
+
+
+RESOURCES:
+  Total number of acquire() calls: 0
+  Total number of release() calls: 0
+
+    Resource Availability Table
+|---------------|-------------------------|
+|Resource Type  |0    1    2    3    4    |
+|---------------|-------------------------|
+|  Total        |8    8    8    6    9    |
+|---------------|-------------------------|
+|  Available    |8    8    8    6    9    |
+|---------------|-------------------------|
+
+
+
+    Resource Allocation Table
+|------------------|-----------------------------------|
+|Resource Type     |0      1      2      3      4      |
+|------------------|-----------------------------------|
+|------------------|-----------------------------------|
+
+
+
+
+The suspended  RRBs: 
+
+
+-----------------------------------------------
+
+Sim: 104594 [IFLModules.TaskCB]  
+	Entering create()
+Mod: 104594 [Tasks.TaskCB]  
+	Task(5/NN) created
+Sim: 104594 [IFLModules.FileSys]  
+	Creating file: create(/vm/5,65536)
+Mod: 104594 [FileSys.FileSys]  
+	Creating file: create(/vm/5,65536)
+Mod: 104594 [FileSys.FileSys]  
+	New file size 64 blocks
+Mod: 104594 [FileSys.FileSys]  
+	Inode(Id(4),Device(0),BlockCount(64),OpenCount(0),LinkCount(1))
+	  File `/vm/5', blocksize=64 created on device 0
+Sim: 104594 [IFLModules.FileSys]  
+	System call create(`/vm/5')  succeeded, as expected
+Sim: 104594 [IFLModules.OpenFile]  
+	System call open(`/vm/5')
+Sim: 104594 [Tasks.TaskCB]  
+	Adding Openfile(8:5/0) to the open files table of Task(5/L)
+Mod: 104594 [FileSys.OpenFile]  
+	File `/vm/5' opened 1 times
+Sim: 104594 [IFLModules.OpenFile]  
+	File `/vm/5' opened as Openfile(8:5/0)
+Sim: 104594 [IFLModules.FileSys]  
+	System call open(`/vm/5')  succeeded, as expected
+Sim: 104594 [IFLModules.ThreadCB]  
+	Trying to create new thread for Task(5/L)
+My:  104594 [Threads.ThreadCB]  
+	Total Number of threads 5
+Sim: 104594 [IFLModules.ThreadCB]  
+	Created new thread Thread(14:5/RD)
+Sim: 104594 [IFLModules.ThreadCB]  
+	Entering dispatch(); current running thread is null
+Sim: 104594 <<Warning!>> [IFLModules.ThreadCB]  
+	After do_dispatch(): CPU is idle, but there are ready threads
+	ready queue = (0:1,1:2,3:3,11:4,14:5)
+
+	at osp.IFLModules.IflThreadCB.long(IflThreadCB.java:555)
+	at osp.IFLModules.IflThreadCB.cG(IflThreadCB.java:912)
+	at osp.IFLModules.DispatchThreadEvent.voidCallback(DispatchThreadEvent.java:31)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 104594 [IFLModules.ThreadCB]  
+	Leaving dispatch()
+Mod: 110000 [Threads.ThreadCB]  
+	Added Thread(15:0/W0) to daemon Task(0/L)
+Mod: 110000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 110000 [Threads.ThreadCB]  
+	Killing daemon Thread(15:0/W0)
+Mod: 110000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 110000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(15:0/KL)
+Mod: 110000 [Hardware.Disk]  
+	Purging IORBs for Thread(15:0/KL) on Device(0)
+Mod: 110000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 110000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 110000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(15:0/KL)
+Mod: 110000 [Hardware.Disk]  
+	Purging IORBs for Thread(15:0/KL) on Device(1)
+Mod: 110000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 110000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 110000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(15:0/KL)
+Mod: 110000 [Hardware.Disk]  
+	Purging IORBs for Thread(15:0/KL) on Device(2)
+Mod: 110000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Mod: 120000 [Threads.ThreadCB]  
+	Added Thread(16:0/W0) to daemon Task(0/L)
+Mod: 120000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 120000 [Threads.ThreadCB]  
+	Killing daemon Thread(16:0/W0)
+Mod: 120000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 120000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(16:0/KL)
+Mod: 120000 [Hardware.Disk]  
+	Purging IORBs for Thread(16:0/KL) on Device(0)
+Mod: 120000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 120000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 120000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(16:0/KL)
+Mod: 120000 [Hardware.Disk]  
+	Purging IORBs for Thread(16:0/KL) on Device(1)
+Mod: 120000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 120000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 120000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(16:0/KL)
+Mod: 120000 [Hardware.Disk]  
+	Purging IORBs for Thread(16:0/KL) on Device(2)
+Mod: 120000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Sim: 120000 [IFLModules.ResourceCB]  
+	Entering deadlock detection method
+Mod: 120000 [Resources.ResourceCB]  
+	Entering Deadlock Detection Algorithm
+Sim: 120000 [IFLModules.ResourceCB]  
+	After do_deadlockDetection(): No deadlocks found
+Sim: 120000 [IFLModules.ResourceCB]  
+	Leaving deadlock detection 
+Sim: 120000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(0:1/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 120000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(1:2/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 120000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(3:3/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 120000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(11:4/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 120000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(14:5/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim:125000 [Utilities.SnapshotTaker]  
+	
+
+[Snapshot at 125000]
+
+MEMORY:
+  Free frames: 30(100%) out of 30
+  Locked frames: 0 out of 30
+  Reserved frames: 0 out of 30
+  Referenced frames: 0 out of 30
+
+Memory map:
+|----------|------------------------------|
+|Frame     |000000000011111111112222222222|
+|number    |012345678901234567890123456789|
+|----------|------------------------------|
+|free      |FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF|
+|lock      |000000000000000000000000000000|
+|reserved  |                              |
+|dirty     |                              |
+|referenced|                              |
+|----------|------------------------------|
+|          |                              |
+|page      |                              |
+|number    |                              |
+|----------|------------------------------|
+|          |                              |
+|owner     |                              |
+|task      |                              |
+|----------|------------------------------|
+
+
+Page table for Task 1:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 2:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 3:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 4:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 5:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+
+DEVICES:
+  Device 0: Swap Device   (mount point: /vm/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+  Device 1: Disk   (mount point: /etc/go/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+  Device 2: Disk   (mount point: /etc/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+
+TASKS and THREADS:
+  CPU Utilization: 0.0%
+  Average service time per thread: 84622.2
+  Average normalized service time per thread: 0.0
+  Total number of tasks: 5
+  Running thread(s): none
+  Threads summary: 5 alive
+  Among live threads: 0 running
+                      0 suspended
+                      5 ready
+  ready queue = (0:1,1:2,3:3,11:4,14:5)
+  running thread(s) = ()
+  waiting thread(s) = ()
+  thread(s) in pagefault = ()
+  killed thread(s) = ()
+
+FILES:
+  Total number of files: 0
+  Total number of directories: 3
+  Total number of open files: 0
+  Device 0: 1216 out of 1536 blocks are free, 20.833332% used
+  Device 1: 40 out of 40 blocks are free, 0.0% used
+  Device 2: 16 out of 16 blocks are free, 0.0% used
+
+
+PORTS:
+  Number of Live Ports: 	0
+  Number of Ports Created: 	0
+  Number of Ports Destroyed: 	0
+  Number of Messages Sent: 	0
+  Number of Messages Received: 	0
+
+
+
+RESOURCES:
+  Total number of acquire() calls: 0
+  Total number of release() calls: 0
+
+    Resource Availability Table
+|---------------|-------------------------|
+|Resource Type  |0    1    2    3    4    |
+|---------------|-------------------------|
+|  Total        |8    8    8    6    9    |
+|---------------|-------------------------|
+|  Available    |8    8    8    6    9    |
+|---------------|-------------------------|
+
+
+
+    Resource Allocation Table
+|------------------|-----------------------------------|
+|Resource Type     |0      1      2      3      4      |
+|------------------|-----------------------------------|
+|------------------|-----------------------------------|
+
+
+
+
+The suspended  RRBs: 
+
+
+-----------------------------------------------
+
+Mod: 130000 [Threads.ThreadCB]  
+	Added Thread(17:0/W0) to daemon Task(0/L)
+Mod: 130000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 130000 [Threads.ThreadCB]  
+	Killing daemon Thread(17:0/W0)
+Mod: 130000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 130000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(17:0/KL)
+Mod: 130000 [Hardware.Disk]  
+	Purging IORBs for Thread(17:0/KL) on Device(0)
+Mod: 130000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 130000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 130000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(17:0/KL)
+Mod: 130000 [Hardware.Disk]  
+	Purging IORBs for Thread(17:0/KL) on Device(1)
+Mod: 130000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 130000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 130000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(17:0/KL)
+Mod: 130000 [Hardware.Disk]  
+	Purging IORBs for Thread(17:0/KL) on Device(2)
+Mod: 130000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Mod: 140000 [Threads.ThreadCB]  
+	Added Thread(18:0/W0) to daemon Task(0/L)
+Mod: 140000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 140000 [Threads.ThreadCB]  
+	Killing daemon Thread(18:0/W0)
+Mod: 140000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 140000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(18:0/KL)
+Mod: 140000 [Hardware.Disk]  
+	Purging IORBs for Thread(18:0/KL) on Device(0)
+Mod: 140000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 140000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 140000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(18:0/KL)
+Mod: 140000 [Hardware.Disk]  
+	Purging IORBs for Thread(18:0/KL) on Device(1)
+Mod: 140000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 140000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 140000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(18:0/KL)
+Mod: 140000 [Hardware.Disk]  
+	Purging IORBs for Thread(18:0/KL) on Device(2)
+Mod: 140000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Sim: 140000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(0:1/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 140000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(1:2/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 140000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(3:3/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 140000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(11:4/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 140000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(14:5/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 140000 [IFLModules.ResourceCB]  
+	Entering deadlock detection method
+Mod: 140000 [Resources.ResourceCB]  
+	Entering Deadlock Detection Algorithm
+Sim: 140000 [IFLModules.ResourceCB]  
+	After do_deadlockDetection(): No deadlocks found
+Sim: 140000 [IFLModules.ResourceCB]  
+	Leaving deadlock detection 
+Mod: 150000 [Threads.ThreadCB]  
+	Added Thread(19:0/W0) to daemon Task(0/L)
+Mod: 150000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 150000 [Threads.ThreadCB]  
+	Killing daemon Thread(19:0/W0)
+Mod: 150000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 150000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(19:0/KL)
+Mod: 150000 [Hardware.Disk]  
+	Purging IORBs for Thread(19:0/KL) on Device(0)
+Mod: 150000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 150000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 150000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(19:0/KL)
+Mod: 150000 [Hardware.Disk]  
+	Purging IORBs for Thread(19:0/KL) on Device(1)
+Mod: 150000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 150000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 150000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(19:0/KL)
+Mod: 150000 [Hardware.Disk]  
+	Purging IORBs for Thread(19:0/KL) on Device(2)
+Mod: 150000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Sim:150000 [Utilities.SnapshotTaker]  
+	
+
+[Snapshot at 150000]
+
+MEMORY:
+  Free frames: 30(100%) out of 30
+  Locked frames: 0 out of 30
+  Reserved frames: 0 out of 30
+  Referenced frames: 0 out of 30
+
+Memory map:
+|----------|------------------------------|
+|Frame     |000000000011111111112222222222|
+|number    |012345678901234567890123456789|
+|----------|------------------------------|
+|free      |FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF|
+|lock      |000000000000000000000000000000|
+|reserved  |                              |
+|dirty     |                              |
+|referenced|                              |
+|----------|------------------------------|
+|          |                              |
+|page      |                              |
+|number    |                              |
+|----------|------------------------------|
+|          |                              |
+|owner     |                              |
+|task      |                              |
+|----------|------------------------------|
+
+
+Page table for Task 1:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 2:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 3:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 4:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 5:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+
+DEVICES:
+  Device 0: Swap Device   (mount point: /vm/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+  Device 1: Disk   (mount point: /etc/go/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+  Device 2: Disk   (mount point: /etc/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+
+TASKS and THREADS:
+  CPU Utilization: 0.0%
+  Average service time per thread: 109622.2
+  Average normalized service time per thread: 0.0
+  Total number of tasks: 5
+  Running thread(s): none
+  Threads summary: 5 alive
+  Among live threads: 0 running
+                      0 suspended
+                      5 ready
+  ready queue = (0:1,1:2,3:3,11:4,14:5)
+  running thread(s) = ()
+  waiting thread(s) = ()
+  thread(s) in pagefault = ()
+  killed thread(s) = ()
+
+FILES:
+  Total number of files: 0
+  Total number of directories: 3
+  Total number of open files: 0
+  Device 0: 1216 out of 1536 blocks are free, 20.833332% used
+  Device 1: 40 out of 40 blocks are free, 0.0% used
+  Device 2: 16 out of 16 blocks are free, 0.0% used
+
+
+PORTS:
+  Number of Live Ports: 	0
+  Number of Ports Created: 	0
+  Number of Ports Destroyed: 	0
+  Number of Messages Sent: 	0
+  Number of Messages Received: 	0
+
+
+
+RESOURCES:
+  Total number of acquire() calls: 0
+  Total number of release() calls: 0
+
+    Resource Availability Table
+|---------------|-------------------------|
+|Resource Type  |0    1    2    3    4    |
+|---------------|-------------------------|
+|  Total        |8    8    8    6    9    |
+|---------------|-------------------------|
+|  Available    |8    8    8    6    9    |
+|---------------|-------------------------|
+
+
+
+    Resource Allocation Table
+|------------------|-----------------------------------|
+|Resource Type     |0      1      2      3      4      |
+|------------------|-----------------------------------|
+|------------------|-----------------------------------|
+
+
+
+
+The suspended  RRBs: 
+
+
+-----------------------------------------------
+
+Sim: 158370 [IFLModules.TaskCB]  
+	Entering create()
+Mod: 158370 [Tasks.TaskCB]  
+	Task(6/NN) created
+Sim: 158370 [IFLModules.FileSys]  
+	Creating file: create(/vm/6,65536)
+Mod: 158370 [FileSys.FileSys]  
+	Creating file: create(/vm/6,65536)
+Mod: 158370 [FileSys.FileSys]  
+	New file size 64 blocks
+Mod: 158370 [FileSys.FileSys]  
+	Inode(Id(5),Device(0),BlockCount(64),OpenCount(0),LinkCount(1))
+	  File `/vm/6', blocksize=64 created on device 0
+Sim: 158370 [IFLModules.FileSys]  
+	System call create(`/vm/6')  succeeded, as expected
+Sim: 158370 [IFLModules.OpenFile]  
+	System call open(`/vm/6')
+Sim: 158370 [Tasks.TaskCB]  
+	Adding Openfile(10:6/0) to the open files table of Task(6/L)
+Mod: 158370 [FileSys.OpenFile]  
+	File `/vm/6' opened 1 times
+Sim: 158370 [IFLModules.OpenFile]  
+	File `/vm/6' opened as Openfile(10:6/0)
+Sim: 158370 [IFLModules.FileSys]  
+	System call open(`/vm/6')  succeeded, as expected
+Sim: 158370 [IFLModules.ThreadCB]  
+	Trying to create new thread for Task(6/L)
+My:  158370 [Threads.ThreadCB]  
+	Total Number of threads 6
+Sim: 158370 [IFLModules.ThreadCB]  
+	Created new thread Thread(20:6/RD)
+Sim: 158370 [IFLModules.ThreadCB]  
+	Entering dispatch(); current running thread is null
+Sim: 158370 <<Warning!>> [IFLModules.ThreadCB]  
+	After do_dispatch(): CPU is idle, but there are ready threads
+	ready queue = (0:1,1:2,3:3,11:4,14:5,20:6)
+
+	at osp.IFLModules.IflThreadCB.long(IflThreadCB.java:555)
+	at osp.IFLModules.IflThreadCB.cG(IflThreadCB.java:912)
+	at osp.IFLModules.DispatchThreadEvent.voidCallback(DispatchThreadEvent.java:31)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 158370 [IFLModules.ThreadCB]  
+	Leaving dispatch()
+Mod: 160000 [Threads.ThreadCB]  
+	Added Thread(21:0/W0) to daemon Task(0/L)
+Mod: 160000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 160000 [Threads.ThreadCB]  
+	Killing daemon Thread(21:0/W0)
+Mod: 160000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 160000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(21:0/KL)
+Mod: 160000 [Hardware.Disk]  
+	Purging IORBs for Thread(21:0/KL) on Device(0)
+Mod: 160000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 160000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 160000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(21:0/KL)
+Mod: 160000 [Hardware.Disk]  
+	Purging IORBs for Thread(21:0/KL) on Device(1)
+Mod: 160000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 160000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 160000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(21:0/KL)
+Mod: 160000 [Hardware.Disk]  
+	Purging IORBs for Thread(21:0/KL) on Device(2)
+Mod: 160000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Sim: 160000 [IFLModules.ResourceCB]  
+	Entering deadlock detection method
+Mod: 160000 [Resources.ResourceCB]  
+	Entering Deadlock Detection Algorithm
+Sim: 160000 [IFLModules.ResourceCB]  
+	After do_deadlockDetection(): No deadlocks found
+Sim: 160000 [IFLModules.ResourceCB]  
+	Leaving deadlock detection 
+Sim: 160000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(0:1/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 160000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(1:2/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 160000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(3:3/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 160000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(11:4/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 160000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(14:5/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Mod: 170000 [Threads.ThreadCB]  
+	Added Thread(22:0/W0) to daemon Task(0/L)
+Mod: 170000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 170000 [Threads.ThreadCB]  
+	Killing daemon Thread(22:0/W0)
+Mod: 170000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 170000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(22:0/KL)
+Mod: 170000 [Hardware.Disk]  
+	Purging IORBs for Thread(22:0/KL) on Device(0)
+Mod: 170000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 170000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 170000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(22:0/KL)
+Mod: 170000 [Hardware.Disk]  
+	Purging IORBs for Thread(22:0/KL) on Device(1)
+Mod: 170000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 170000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 170000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(22:0/KL)
+Mod: 170000 [Hardware.Disk]  
+	Purging IORBs for Thread(22:0/KL) on Device(2)
+Mod: 170000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Sim:175000 [Utilities.SnapshotTaker]  
+	
+
+[Snapshot at 175000]
+
+MEMORY:
+  Free frames: 30(100%) out of 30
+  Locked frames: 0 out of 30
+  Reserved frames: 0 out of 30
+  Referenced frames: 0 out of 30
+
+Memory map:
+|----------|------------------------------|
+|Frame     |000000000011111111112222222222|
+|number    |012345678901234567890123456789|
+|----------|------------------------------|
+|free      |FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF|
+|lock      |000000000000000000000000000000|
+|reserved  |                              |
+|dirty     |                              |
+|referenced|                              |
+|----------|------------------------------|
+|          |                              |
+|page      |                              |
+|number    |                              |
+|----------|------------------------------|
+|          |                              |
+|owner     |                              |
+|task      |                              |
+|----------|------------------------------|
+
+
+Page table for Task 1:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 2:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 3:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 4:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 5:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 6:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+
+DEVICES:
+  Device 0: Swap Device   (mount point: /vm/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+  Device 1: Disk   (mount point: /etc/go/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+  Device 2: Disk   (mount point: /etc/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+
+TASKS and THREADS:
+  CPU Utilization: 0.0%
+  Average service time per thread: 114956.836
+  Average normalized service time per thread: 0.0
+  Total number of tasks: 6
+  Running thread(s): none
+  Threads summary: 6 alive
+  Among live threads: 0 running
+                      0 suspended
+                      6 ready
+  ready queue = (0:1,1:2,3:3,11:4,14:5,20:6)
+  running thread(s) = ()
+  waiting thread(s) = ()
+  thread(s) in pagefault = ()
+  killed thread(s) = ()
+
+FILES:
+  Total number of files: 0
+  Total number of directories: 3
+  Total number of open files: 0
+  Device 0: 1152 out of 1536 blocks are free, 25.0% used
+  Device 1: 40 out of 40 blocks are free, 0.0% used
+  Device 2: 16 out of 16 blocks are free, 0.0% used
+
+
+PORTS:
+  Number of Live Ports: 	0
+  Number of Ports Created: 	0
+  Number of Ports Destroyed: 	0
+  Number of Messages Sent: 	0
+  Number of Messages Received: 	0
+
+
+
+RESOURCES:
+  Total number of acquire() calls: 0
+  Total number of release() calls: 0
+
+    Resource Availability Table
+|---------------|-------------------------|
+|Resource Type  |0    1    2    3    4    |
+|---------------|-------------------------|
+|  Total        |8    8    8    6    9    |
+|---------------|-------------------------|
+|  Available    |8    8    8    6    9    |
+|---------------|-------------------------|
+
+
+
+    Resource Allocation Table
+|------------------|-----------------------------------|
+|Resource Type     |0      1      2      3      4      |
+|------------------|-----------------------------------|
+|------------------|-----------------------------------|
+
+
+
+
+The suspended  RRBs: 
+
+
+-----------------------------------------------
+
+Mod: 180000 [Threads.ThreadCB]  
+	Added Thread(23:0/W0) to daemon Task(0/L)
+Mod: 180000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 180000 [Threads.ThreadCB]  
+	Killing daemon Thread(23:0/W0)
+Mod: 180000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 180000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(23:0/KL)
+Mod: 180000 [Hardware.Disk]  
+	Purging IORBs for Thread(23:0/KL) on Device(0)
+Mod: 180000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 180000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 180000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(23:0/KL)
+Mod: 180000 [Hardware.Disk]  
+	Purging IORBs for Thread(23:0/KL) on Device(1)
+Mod: 180000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 180000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 180000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(23:0/KL)
+Mod: 180000 [Hardware.Disk]  
+	Purging IORBs for Thread(23:0/KL) on Device(2)
+Mod: 180000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Sim: 180000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(0:1/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 180000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(1:2/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 180000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(3:3/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 180000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(11:4/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 180000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(14:5/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 180000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(20:6/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 180000 [IFLModules.ResourceCB]  
+	Entering deadlock detection method
+Mod: 180000 [Resources.ResourceCB]  
+	Entering Deadlock Detection Algorithm
+Sim: 180000 [IFLModules.ResourceCB]  
+	After do_deadlockDetection(): No deadlocks found
+Sim: 180000 [IFLModules.ResourceCB]  
+	Leaving deadlock detection 
+Mod: 190000 [Threads.ThreadCB]  
+	Added Thread(24:0/W0) to daemon Task(0/L)
+Mod: 190000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 190000 [Threads.ThreadCB]  
+	Killing daemon Thread(24:0/W0)
+Mod: 190000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 190000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(24:0/KL)
+Mod: 190000 [Hardware.Disk]  
+	Purging IORBs for Thread(24:0/KL) on Device(0)
+Mod: 190000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 190000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 190000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(24:0/KL)
+Mod: 190000 [Hardware.Disk]  
+	Purging IORBs for Thread(24:0/KL) on Device(1)
+Mod: 190000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 190000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 190000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(24:0/KL)
+Mod: 190000 [Hardware.Disk]  
+	Purging IORBs for Thread(24:0/KL) on Device(2)
+Mod: 190000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Sim: 199686 [IFLModules.TaskCB]  
+	Entering create()
+Mod: 200000 [Threads.ThreadCB]  
+	Added Thread(25:0/W0) to daemon Task(0/L)
+Mod: 200000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 200000 [Threads.ThreadCB]  
+	Killing daemon Thread(25:0/W0)
+Mod: 200000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 200000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(25:0/KL)
+Mod: 200000 [Hardware.Disk]  
+	Purging IORBs for Thread(25:0/KL) on Device(0)
+Mod: 200000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 200000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 200000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(25:0/KL)
+Mod: 200000 [Hardware.Disk]  
+	Purging IORBs for Thread(25:0/KL) on Device(1)
+Mod: 200000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 200000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 200000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(25:0/KL)
+Mod: 200000 [Hardware.Disk]  
+	Purging IORBs for Thread(25:0/KL) on Device(2)
+Mod: 200000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Sim: 200000 [IFLModules.ResourceCB]  
+	Entering deadlock detection method
+Mod: 200000 [Resources.ResourceCB]  
+	Entering Deadlock Detection Algorithm
+Sim: 200000 [IFLModules.ResourceCB]  
+	After do_deadlockDetection(): No deadlocks found
+Sim: 200000 [IFLModules.ResourceCB]  
+	Leaving deadlock detection 
+Sim: 200000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(0:1/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 200000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(1:2/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 200000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(3:3/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 200000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(11:4/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 200000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(14:5/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 200000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(20:6/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim:200000 [Utilities.SnapshotTaker]  
+	
+
+[Snapshot at 200000]
+
+MEMORY:
+  Free frames: 30(100%) out of 30
+  Locked frames: 0 out of 30
+  Reserved frames: 0 out of 30
+  Referenced frames: 0 out of 30
+
+Memory map:
+|----------|------------------------------|
+|Frame     |000000000011111111112222222222|
+|number    |012345678901234567890123456789|
+|----------|------------------------------|
+|free      |FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF|
+|lock      |000000000000000000000000000000|
+|reserved  |                              |
+|dirty     |                              |
+|referenced|                              |
+|----------|------------------------------|
+|          |                              |
+|page      |                              |
+|number    |                              |
+|----------|------------------------------|
+|          |                              |
+|owner     |                              |
+|task      |                              |
+|----------|------------------------------|
+
+
+Page table for Task 1:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 2:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 3:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 4:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 5:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 6:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+
+DEVICES:
+  Device 0: Swap Device   (mount point: /vm/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+  Device 1: Disk   (mount point: /etc/go/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+  Device 2: Disk   (mount point: /etc/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+
+TASKS and THREADS:
+  CPU Utilization: 0.0%
+  Average service time per thread: 139956.83
+  Average normalized service time per thread: 0.0
+  Total number of tasks: 6
+  Running thread(s): none
+  Threads summary: 6 alive
+  Among live threads: 0 running
+                      0 suspended
+                      6 ready
+  ready queue = (0:1,1:2,3:3,11:4,14:5,20:6)
+  running thread(s) = ()
+  waiting thread(s) = ()
+  thread(s) in pagefault = ()
+  killed thread(s) = ()
+
+FILES:
+  Total number of files: 0
+  Total number of directories: 3
+  Total number of open files: 0
+  Device 0: 1152 out of 1536 blocks are free, 25.0% used
+  Device 1: 40 out of 40 blocks are free, 0.0% used
+  Device 2: 16 out of 16 blocks are free, 0.0% used
+
+
+PORTS:
+  Number of Live Ports: 	0
+  Number of Ports Created: 	0
+  Number of Ports Destroyed: 	0
+  Number of Messages Sent: 	0
+  Number of Messages Received: 	0
+
+
+
+RESOURCES:
+  Total number of acquire() calls: 0
+  Total number of release() calls: 0
+
+    Resource Availability Table
+|---------------|-------------------------|
+|Resource Type  |0    1    2    3    4    |
+|---------------|-------------------------|
+|  Total        |8    8    8    6    9    |
+|---------------|-------------------------|
+|  Available    |8    8    8    6    9    |
+|---------------|-------------------------|
+
+
+
+    Resource Allocation Table
+|------------------|-----------------------------------|
+|Resource Type     |0      1      2      3      4      |
+|------------------|-----------------------------------|
+|------------------|-----------------------------------|
+
+
+
+
+The suspended  RRBs: 
+
+
+-----------------------------------------------
+
+Mod: 210000 [Threads.ThreadCB]  
+	Added Thread(26:0/W0) to daemon Task(0/L)
+Mod: 210000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 210000 [Threads.ThreadCB]  
+	Killing daemon Thread(26:0/W0)
+Mod: 210000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 210000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(26:0/KL)
+Mod: 210000 [Hardware.Disk]  
+	Purging IORBs for Thread(26:0/KL) on Device(0)
+Mod: 210000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 210000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 210000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(26:0/KL)
+Mod: 210000 [Hardware.Disk]  
+	Purging IORBs for Thread(26:0/KL) on Device(1)
+Mod: 210000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 210000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 210000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(26:0/KL)
+Mod: 210000 [Hardware.Disk]  
+	Purging IORBs for Thread(26:0/KL) on Device(2)
+Mod: 210000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Mod: 220000 [Threads.ThreadCB]  
+	Added Thread(27:0/W0) to daemon Task(0/L)
+Mod: 220000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 220000 [Threads.ThreadCB]  
+	Killing daemon Thread(27:0/W0)
+Mod: 220000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 220000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(27:0/KL)
+Mod: 220000 [Hardware.Disk]  
+	Purging IORBs for Thread(27:0/KL) on Device(0)
+Mod: 220000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 220000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 220000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(27:0/KL)
+Mod: 220000 [Hardware.Disk]  
+	Purging IORBs for Thread(27:0/KL) on Device(1)
+Mod: 220000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 220000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 220000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(27:0/KL)
+Mod: 220000 [Hardware.Disk]  
+	Purging IORBs for Thread(27:0/KL) on Device(2)
+Mod: 220000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Sim: 220000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(0:1/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 220000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(1:2/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 220000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(3:3/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 220000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(11:4/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 220000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(14:5/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 220000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(20:6/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 220000 [IFLModules.ResourceCB]  
+	Entering deadlock detection method
+Mod: 220000 [Resources.ResourceCB]  
+	Entering Deadlock Detection Algorithm
+Sim: 220000 [IFLModules.ResourceCB]  
+	After do_deadlockDetection(): No deadlocks found
+Sim: 220000 [IFLModules.ResourceCB]  
+	Leaving deadlock detection 
+Sim:225000 [Utilities.SnapshotTaker]  
+	
+
+[Snapshot at 225000]
+
+MEMORY:
+  Free frames: 30(100%) out of 30
+  Locked frames: 0 out of 30
+  Reserved frames: 0 out of 30
+  Referenced frames: 0 out of 30
+
+Memory map:
+|----------|------------------------------|
+|Frame     |000000000011111111112222222222|
+|number    |012345678901234567890123456789|
+|----------|------------------------------|
+|free      |FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF|
+|lock      |000000000000000000000000000000|
+|reserved  |                              |
+|dirty     |                              |
+|referenced|                              |
+|----------|------------------------------|
+|          |                              |
+|page      |                              |
+|number    |                              |
+|----------|------------------------------|
+|          |                              |
+|owner     |                              |
+|task      |                              |
+|----------|------------------------------|
+
+
+Page table for Task 1:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 2:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 3:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 4:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 5:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 6:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+
+DEVICES:
+  Device 0: Swap Device   (mount point: /vm/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+  Device 1: Disk   (mount point: /etc/go/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+  Device 2: Disk   (mount point: /etc/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+
+TASKS and THREADS:
+  CPU Utilization: 0.0%
+  Average service time per thread: 164956.83
+  Average normalized service time per thread: 0.0
+  Total number of tasks: 6
+  Running thread(s): none
+  Threads summary: 6 alive
+  Among live threads: 0 running
+                      0 suspended
+                      6 ready
+  ready queue = (0:1,1:2,3:3,11:4,14:5,20:6)
+  running thread(s) = ()
+  waiting thread(s) = ()
+  thread(s) in pagefault = ()
+  killed thread(s) = ()
+
+FILES:
+  Total number of files: 0
+  Total number of directories: 3
+  Total number of open files: 0
+  Device 0: 1152 out of 1536 blocks are free, 25.0% used
+  Device 1: 40 out of 40 blocks are free, 0.0% used
+  Device 2: 16 out of 16 blocks are free, 0.0% used
+
+
+PORTS:
+  Number of Live Ports: 	0
+  Number of Ports Created: 	0
+  Number of Ports Destroyed: 	0
+  Number of Messages Sent: 	0
+  Number of Messages Received: 	0
+
+
+
+RESOURCES:
+  Total number of acquire() calls: 0
+  Total number of release() calls: 0
+
+    Resource Availability Table
+|---------------|-------------------------|
+|Resource Type  |0    1    2    3    4    |
+|---------------|-------------------------|
+|  Total        |8    8    8    6    9    |
+|---------------|-------------------------|
+|  Available    |8    8    8    6    9    |
+|---------------|-------------------------|
+
+
+
+    Resource Allocation Table
+|------------------|-----------------------------------|
+|Resource Type     |0      1      2      3      4      |
+|------------------|-----------------------------------|
+|------------------|-----------------------------------|
+
+
+
+
+The suspended  RRBs: 
+
+
+-----------------------------------------------
+
+Mod: 230000 [Threads.ThreadCB]  
+	Added Thread(28:0/W0) to daemon Task(0/L)
+Mod: 230000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 230000 [Threads.ThreadCB]  
+	Killing daemon Thread(28:0/W0)
+Mod: 230000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 230000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(28:0/KL)
+Mod: 230000 [Hardware.Disk]  
+	Purging IORBs for Thread(28:0/KL) on Device(0)
+Mod: 230000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 230000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 230000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(28:0/KL)
+Mod: 230000 [Hardware.Disk]  
+	Purging IORBs for Thread(28:0/KL) on Device(1)
+Mod: 230000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 230000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 230000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(28:0/KL)
+Mod: 230000 [Hardware.Disk]  
+	Purging IORBs for Thread(28:0/KL) on Device(2)
+Mod: 230000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Mod: 240000 [Threads.ThreadCB]  
+	Added Thread(29:0/W0) to daemon Task(0/L)
+Mod: 240000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 240000 [Threads.ThreadCB]  
+	Killing daemon Thread(29:0/W0)
+Mod: 240000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 240000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(29:0/KL)
+Mod: 240000 [Hardware.Disk]  
+	Purging IORBs for Thread(29:0/KL) on Device(0)
+Mod: 240000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 240000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 240000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(29:0/KL)
+Mod: 240000 [Hardware.Disk]  
+	Purging IORBs for Thread(29:0/KL) on Device(1)
+Mod: 240000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 240000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 240000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(29:0/KL)
+Mod: 240000 [Hardware.Disk]  
+	Purging IORBs for Thread(29:0/KL) on Device(2)
+Mod: 240000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Sim: 240000 [IFLModules.ResourceCB]  
+	Entering deadlock detection method
+Mod: 240000 [Resources.ResourceCB]  
+	Entering Deadlock Detection Algorithm
+Sim: 240000 [IFLModules.ResourceCB]  
+	After do_deadlockDetection(): No deadlocks found
+Sim: 240000 [IFLModules.ResourceCB]  
+	Leaving deadlock detection 
+Sim: 240000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(0:1/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 240000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(1:2/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 240000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(3:3/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 240000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(11:4/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 240000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(14:5/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Sim: 240000 <<Warning!>> [IFLModules.StarvationChecker]  
+	Thread(20:6/RD) has been inactive for over 15000 ticks
+	  It seems to be in the ready queue
+
+	at osp.IFLModules.StarvationChecker.null(StarvationChecker.java:87)
+	at osp.IFLModules.StarvationChecker.voidCallback(StarvationChecker.java:23)
+	at osp.EventEngine.EventCallback.Activate(EventCallback.java:48)
+	at osp.EventEngine.EventEngObj.ActivateChildren(EventEngObj.java:172)
+	at osp.EventEngine.EventEngObj.Activate(EventEngObj.java:157)
+	at osp.EventEngine.EventDriver.go(EventDriver.java:124)
+	at osp.EventEngine.EngineThread.run(EngineThread.java:60)
+Mod: 250000 [Threads.ThreadCB]  
+	Added Thread(30:0/W0) to daemon Task(0/L)
+Mod: 250000 [Memory.PageFaultHandler]  
+	Test: Looking for dirty frame
+Mod: 250000 [Threads.ThreadCB]  
+	Killing daemon Thread(30:0/W0)
+Mod: 250000 [Threads.ThreadCB]  
+	Purging IORBs on device 0
+Sim: 250000 [Hardware.Disk]  
+	Purging IORBs on Device(0) for Thread(30:0/KL)
+Mod: 250000 [Hardware.Disk]  
+	Purging IORBs for Thread(30:0/KL) on Device(0)
+Mod: 250000 [Hardware.Disk]  
+	The IORB queue on Device(0) is empty
+Mod: 250000 [Threads.ThreadCB]  
+	Purging IORBs on device 1
+Sim: 250000 [Hardware.Disk]  
+	Purging IORBs on Device(1) for Thread(30:0/KL)
+Mod: 250000 [Hardware.Disk]  
+	Purging IORBs for Thread(30:0/KL) on Device(1)
+Mod: 250000 [Hardware.Disk]  
+	The IORB queue on Device(1) is empty
+Mod: 250000 [Threads.ThreadCB]  
+	Purging IORBs on device 2
+Sim: 250000 [Hardware.Disk]  
+	Purging IORBs on Device(2) for Thread(30:0/KL)
+Mod: 250000 [Hardware.Disk]  
+	Purging IORBs for Thread(30:0/KL) on Device(2)
+Mod: 250000 [Hardware.Disk]  
+	The IORB queue on Device(2) is empty
+Sim:250000 [Utilities.SnapshotTaker]  
+	
+
+[Snapshot at 250000]
+
+MEMORY:
+  Free frames: 30(100%) out of 30
+  Locked frames: 0 out of 30
+  Reserved frames: 0 out of 30
+  Referenced frames: 0 out of 30
+
+Memory map:
+|----------|------------------------------|
+|Frame     |000000000011111111112222222222|
+|number    |012345678901234567890123456789|
+|----------|------------------------------|
+|free      |FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF|
+|lock      |000000000000000000000000000000|
+|reserved  |                              |
+|dirty     |                              |
+|referenced|                              |
+|----------|------------------------------|
+|          |                              |
+|page      |                              |
+|number    |                              |
+|----------|------------------------------|
+|          |                              |
+|owner     |                              |
+|task      |                              |
+|----------|------------------------------|
+
+
+Page table for Task 1:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 2:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 3:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 4:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 5:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+Page table for Task 6:
+  Valid pages: 0 out of 64
+|------|----------------------------------------------------------------|
+|Page  |0000000000111111111122222222223333333333444444444455555555556666|
+|number|0123456789012345678901234567890123456789012345678901234567890123|
+|------|----------------------------------------------------------------|
+|valid |                                                                |
+|------|----------------------------------------------------------------|
+|      |                                                                |
+|frame |                                                                |
+|number|                                                                |
+|------|----------------------------------------------------------------|
+
+
+DEVICES:
+  Device 0: Swap Device   (mount point: /vm/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+  Device 1: Disk   (mount point: /etc/go/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+  Device 2: Disk   (mount point: /etc/)
+	    Number of pages read = 0
+	    Number of pages written = 0
+	    Average number of cylinders swept per disk access = 0
+	      Total number of cylinders swept = 0
+	    Service time per I/O request: 0
+	    Device queue:  Empty
+
+TASKS and THREADS:
+  CPU Utilization: 0.0%
+  Average service time per thread: 189956.83
+  Average normalized service time per thread: 0.0
+  Total number of tasks: 6
+  Running thread(s): none
+  Threads summary: 6 alive
+  Among live threads: 0 running
+                      0 suspended
+                      6 ready
+  ready queue = (0:1,1:2,3:3,11:4,14:5,20:6)
+  running thread(s) = ()
+  waiting thread(s) = ()
+  thread(s) in pagefault = ()
+  killed thread(s) = ()
+
+FILES:
+  Total number of files: 0
+  Total number of directories: 3
+  Total number of open files: 0
+  Device 0: 1152 out of 1536 blocks are free, 25.0% used
+  Device 1: 40 out of 40 blocks are free, 0.0% used
+  Device 2: 16 out of 16 blocks are free, 0.0% used
+
+
+PORTS:
+  Number of Live Ports: 	0
+  Number of Ports Created: 	0
+  Number of Ports Destroyed: 	0
+  Number of Messages Sent: 	0
+  Number of Messages Received: 	0
+
+
+
+RESOURCES:
+  Total number of acquire() calls: 0
+  Total number of release() calls: 0
+
+    Resource Availability Table
+|---------------|-------------------------|
+|Resource Type  |0    1    2    3    4    |
+|---------------|-------------------------|
+|  Total        |8    8    8    6    9    |
+|---------------|-------------------------|
+|  Available    |8    8    8    6    9    |
+|---------------|-------------------------|
+
+
+
+    Resource Allocation Table
+|------------------|-----------------------------------|
+|Resource Type     |0      1      2      3      4      |
+|------------------|-----------------------------------|
+|------------------|-----------------------------------|
+
+
+
+
+The suspended  RRBs: 
+
+
+-----------------------------------------------
+
+Sim: 250006 [EventEngine.EventDriver]  
+	Simulation End Time: Thu Oct 22 20:03:03 EDT 2015
+
+Sim: 250006 [Utilities.Simulation]  
+	Elapsed time: 3 seconds
+
